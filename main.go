@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/MuhammadIbraAlfathar/gin-api/config"
+	"github.com/MuhammadIbraAlfathar/gin-api/router"
 	"github.com/gin-gonic/gin"
 	"log"
 )
@@ -20,6 +21,9 @@ func main() {
 			"message": "pong",
 		})
 	})
+
+	router.AuthRouter(api)
+
 	err := r.Run(fmt.Sprintf(":%v", config.ENV.PORT))
 	if err != nil {
 		log.Fatal("Error connection to port")
